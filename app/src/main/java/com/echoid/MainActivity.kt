@@ -28,8 +28,15 @@ fun AppNavigation() {
     NavHost(navController = navController, startDestination = "opening") {
         composable("opening") {
             OpeningScreen()
-            // In a real app, you would use a LaunchedEffect to navigate after a delay
-            // LaunchedEffect(Unit) { delay(2000); navController.navigate("login") }
+            
+            // 2秒后自动跳转到登录页
+            LaunchedEffect(Unit) {
+                kotlinx.coroutines.delay(2000)
+                navController.navigate("login") {
+                    // 清除返回栈，防止点击返回键又回到开屏页
+                    popUpTo("opening") { inclusive = true }
+                }
+            }
         }
         composable("login") {
             LoginScreen()
