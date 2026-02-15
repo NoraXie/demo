@@ -1,5 +1,6 @@
 package com.echoid.ui.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -177,14 +178,9 @@ fun VerifyStep(number: String, text: String) {
 @Composable
 fun OtpBox(value: String, isFocused: Boolean = false) {
     Surface(
-        modifier = Modifier
-            .size(64.dp, 80.dp)
-            .border(
-                2.dp,
-                if (isFocused) Primary else Color.LightGray.copy(alpha = 0.2f),
-                RoundedCornerShape(12.dp)
-            ),
+        modifier = Modifier.size(64.dp, 80.dp),
         shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(2.dp, if (isFocused) Primary else Color.LightGray.copy(alpha = 0.2f)),
         color = if (isFocused) Color.White else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.05f)
     ) {
         Box(contentAlignment = Alignment.Center) {

@@ -1,6 +1,8 @@
 package com.echoid.ui.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -149,14 +151,9 @@ fun VerifyFailScreen() {
 @Composable
 fun FailOtpBox(value: String, isError: Boolean = false) {
     Surface(
-        modifier = Modifier
-            .size(64.dp, 80.dp)
-            .border(
-                2.dp,
-                if (isError) ErrorColor else Color.LightGray.copy(alpha = 0.2f),
-                RoundedCornerShape(12.dp)
-            ),
+        modifier = Modifier.size(64.dp, 80.dp),
         shape = RoundedCornerShape(12.dp),
+        border = BorderStroke(2.dp, if (isError) ErrorColor else Color.LightGray.copy(alpha = 0.2f)),
         color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.05f)
     ) {
         Box(contentAlignment = Alignment.Center) {
