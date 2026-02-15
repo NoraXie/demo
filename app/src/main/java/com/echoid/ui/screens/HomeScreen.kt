@@ -1,5 +1,6 @@
 package com.echoid.ui.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -134,7 +135,7 @@ fun SecurityStatusCard() {
             Surface(
                 color = Primary.copy(alpha = 0.2f),
                 shape = CircleShape,
-                border = border(1.dp, Primary.copy(alpha = 0.3f), CircleShape)
+                border = BorderStroke(1.dp, Primary.copy(alpha = 0.3f))
             ) {
                 Row(
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
