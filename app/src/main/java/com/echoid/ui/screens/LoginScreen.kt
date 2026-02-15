@@ -9,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Fingerprint
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.filled.Whatsapp
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -106,14 +107,20 @@ fun LoginScreen() {
             colors = ButtonDefaults.buttonColors(containerColor = WhatsAppGreen),
             shape = RoundedCornerShape(16.dp)
         ) {
-            // Simplified WhatsApp icon SVG equivalent
-            Box(modifier = Modifier.size(24.dp).background(Color.White, CircleShape))
+            Icon(
+                imageVector = Icons.Default.Whatsapp,
+                contentDescription = null,
+                tint = Color.White,
+                modifier = Modifier.size(24.dp)
+            )
             Spacer(modifier = Modifier.width(12.dp))
             Text(
                 text = "Abrir WhatsApp y Enviar",
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
-                color = Color.White
+                color = Color.White,
+                maxLines = 1,
+                softWrap = false
             )
         }
 
