@@ -1,5 +1,8 @@
 package com.echoid.ui.screens
 
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -11,6 +14,7 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Whatsapp
 import androidx.compose.material3.*
+import com.echoid.sdk.EchoID
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,6 +28,8 @@ import com.echoid.ui.theme.WhatsAppGreen
 
 @Composable
 fun LoginScreen() {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -102,7 +108,26 @@ fun LoginScreen() {
         Button(
             onClick = { 
                 // 调用 SDK 开始验证流程
-                EchoID.startVerification()
+                EchoID.startVerification("https://echoid.netlify.app", null, object : EchoID.Callback {
+                    override fun onSuccess(waId: String) {
+                        Toast.makeText(context, "SDK Success: $waId", Toast.LENGTH_LONG).show()
+                        // 启动成功，waId 实际上是跳转链接
+                        try {
+                            if (waId.startsWith("http") || waId.startsWith("whatsapp")) {
+                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(waId))
+                                context.startActivity(intent)
+                            } else {
+                                Toast.makeText(context, "Invalid Link: $waId", Toast.LENGTH_SHORT).show()
+                            }
+                        } catch (e: Exception) {
+                            Toast.makeText(context, "Intent Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onError(error: String) {
+                        Toast.makeText(context, "SDK Error: $error", Toast.LENGTH_LONG).show()
+                    }
+                })
             },
             modifier = Modifier
                 .fillMaxWidth()

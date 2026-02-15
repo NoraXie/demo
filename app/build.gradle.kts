@@ -47,8 +47,8 @@ android {
 }
 
 dependencies {
-    // 引用 libs 目录下的所有 aar 和 jar 文件
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
+    // 明确引用 libs 目录下的 SDK
+    implementation(files("libs/echoid-sdk-release.aar"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")

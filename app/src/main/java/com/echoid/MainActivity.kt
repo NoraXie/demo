@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         
         // Initialize EchoID SDK
-        EchoID.init(this, "api-test-123", "EchoID-Demo")
+        EchoID.initialize("test_key_123", "EchoID-Demo")
 
         // Handle incoming intent (initial launch)
         handleDeepLink(intent)
@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
                             navigationTarget = "home"
                         }
 
-                        override fun onFailure(error: String) {
+                        override fun onError(error: String) {
                             navigationTarget = "verify_fail"
                         }
                     })
