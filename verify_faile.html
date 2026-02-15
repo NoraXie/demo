@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#19e664",
+                        "error": "#ef4444",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#112117",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <title>Verificación OTP - ECHOID</title>
+    <style type="text/tailwindcss">
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-custom {
+            animation: spin 1s linear infinite;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex flex-col items-center justify-center p-6">
+    <div
+        class="w-full max-w-[400px] bg-white dark:bg-zinc-900 shadow-2xl rounded-xl overflow-hidden min-h-[700px] flex flex-col relative">
+        <div class="pt-12 pb-4 px-6 flex items-center justify-between">
+            <button class="text-slate-400 hover:text-primary transition-colors">
+                <span class="material-icons">arrow_back_ios</span>
+            </button>
+            <div class="h-1 w-12 bg-slate-200 dark:bg-slate-700 rounded-full absolute top-4 left-1/2 -translate-x-1/2">
+            </div>
+        </div>
+        <div class="px-8 pt-4 pb-8 text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+                <span class="material-icons text-primary text-3xl">mark_chat_unread</span>
+            </div>
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Esperando confirmación...</h1>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">Validando tu identidad vía WhatsApp</p>
+        </div>
+        <div class="px-8 mb-8">
+            <div class="space-y-4 bg-slate-50 dark:bg-zinc-800/50 p-6 rounded-lg">
+                <div class="flex items-start gap-3">
+                    <span
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white text-xs font-bold shrink-0">1</span>
+                    <p class="text-sm font-medium text-slate-700 dark:text-slate-300">Envía el mensaje en WhatsApp.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white text-xs font-bold shrink-0">2</span>
+                    <p class="text-sm font-medium text-slate-700 dark:text-slate-300">Recibe tu código de 4 dígitos.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <span
+                        class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white text-xs font-bold shrink-0">3</span>
+                    <p class="text-sm font-medium text-slate-700 dark:text-slate-300">Ingrésalo aquí abajo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="px-8 mb-4">
+            <div class="flex justify-between gap-4">
+                <input
+                    class="w-16 h-20 text-center text-3xl font-bold bg-white dark:bg-zinc-800 border-2 border-slate-200 dark:border-zinc-700 focus:border-primary dark:focus:border-primary focus:ring-4 focus:ring-primary/20 rounded-lg outline-none transition-all"
+                    maxlength="1" type="text" value="4" />
+                <input
+                    class="w-16 h-20 text-center text-3xl font-bold bg-white dark:bg-zinc-800 border-2 border-slate-200 dark:border-zinc-700 focus:border-primary dark:focus:border-primary focus:ring-4 focus:ring-primary/20 rounded-lg outline-none transition-all"
+                    maxlength="1" type="text" value="7" />
+                <input
+                    class="w-16 h-20 text-center text-3xl font-bold bg-white dark:bg-zinc-800 border-2 border-slate-200 dark:border-zinc-700 focus:border-primary dark:focus:border-primary focus:ring-4 focus:ring-primary/20 rounded-lg outline-none transition-all"
+                    maxlength="1" type="text" value="2" />
+                <div class="relative w-16 h-20">
+                    <input
+                        class="w-full h-full text-center text-3xl font-bold bg-white dark:bg-zinc-800 border-2 border-primary dark:border-primary focus:border-primary dark:focus:border-primary focus:ring-4 focus:ring-primary/20 rounded-lg outline-none transition-all pr-1"
+                        maxlength="1" type="text" value="9" />
+                    <div class="absolute bottom-2 right-2 flex items-center justify-center">
+                        <span
+                            class="material-symbols-outlined text-primary text-sm animate-spin-custom">progress_activity</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 flex flex-col items-center">
+                <div class="flex items-center gap-2 text-error mb-4">
+                    <span class="material-symbols-outlined text-lg">error</span>
+                    <p class="text-sm font-semibold">Código incorrecto o expirado</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex-grow"></div>
+        <div class="px-8 pb-12 space-y-4">
+            <button
+                class="w-full bg-slate-900 dark:bg-white text-white dark:text-zinc-900 font-bold py-4 rounded-full shadow-lg transition-all flex items-center justify-center gap-2 active:scale-95">
+                <span class="material-icons text-xl">refresh</span>
+                Reintentar Verificación
+            </button>
+            <div class="flex flex-col items-center gap-4 pt-2">
+                <button
+                    class="text-slate-400 dark:text-slate-500 text-sm font-medium hover:text-primary transition-colors flex items-center gap-1">
+                    No recibí el código
+                </button>
+                <button
+                    class="text-primary text-sm font-semibold hover:underline decoration-2 underline-offset-4 flex items-center gap-2">
+                    <img alt="WhatsApp logo" class="w-4 h-4"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAibC5lNLkgjNh0ohe84NF5i4pmrwjPtQO-nKZ656OxbAHyvg7nW_SZhW58za9D1USeUEcWzHRePsbuV-CNmNYvYE0ZKxeEH8pYOyYxbeJfaTTdQtrRe0q2BsrLtfMQdQoQOX_sHTNHRGYoTz5FiOwxFHCeDSDsLxrELtKwc9M-lMeXz0ZsmdH31PxinkGRN7yhx6nDaC93RBxXawlWPG0qr52lV-qeFdgyBz6e0DhD8Am0eQofYjhVeWNjBbbmbWng-ldm0S07WzSm" />
+                    Volver a abrir WhatsApp
+                </button>
+            </div>
+        </div>
+        <div class="absolute -bottom-20 -right-20 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute -top-10 -left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl"></div>
+    </div>
+    <div class="fixed top-0 left-0 w-full h-full -z-10 opacity-20 pointer-events-none">
+        <div class="absolute top-[10%] left-[5%] w-64 h-64 bg-primary/20 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-[10%] right-[5%] w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+    </div>
+
+</body>
+
+</html>
