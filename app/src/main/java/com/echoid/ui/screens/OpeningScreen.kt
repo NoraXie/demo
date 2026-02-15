@@ -90,14 +90,14 @@ fun OpeningScreen() {
 
             // Loading Spinner
             val infiniteTransition = rememberInfiniteTransition()
-            val rotation by infiniteTransition.animateValue(
+            val rotation by infiniteTransition.animateFloat(
                 initialValue = 0f,
                 targetValue = 360f,
-                type = Float.VectorConverter,
                 animationSpec = infiniteRepeatable(
                     animation = tween(1000, easing = LinearEasing),
                     repeatMode = RepeatMode.Restart
-                )
+                ),
+                label = "rotation"
             )
 
             Box(
