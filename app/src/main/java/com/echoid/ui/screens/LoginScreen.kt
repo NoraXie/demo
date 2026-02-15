@@ -100,7 +100,10 @@ fun LoginScreen() {
 
         // WhatsApp Button
         Button(
-            onClick = { /* Handle WhatsApp click */ },
+            onClick = { 
+                // 调用 SDK 开始验证流程
+                EchoID.startVerification()
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(64.dp),
